@@ -8,6 +8,10 @@
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 
+<mat-form-field>
+<input matInput placeholder="type" [(ngModel)]="myType">
+</mat-form-field>
+
 <button mat-button (click)="getData()">Click me!</button>
 
 <table class="mat-elevation-z8">
