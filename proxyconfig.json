@@ -1,7 +1,0 @@
-{
-    "/get": {
-        "target": "http://localhost:3003",
-        "secure": false,
-        "changeOrigin": false
-    }
-}

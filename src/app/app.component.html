@@ -2,6 +2,12 @@
 <div>
  <!--  Hello {{ title }}
   {{ displayedColumns }} -->
+<mat-form-field>
+<input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="myDate">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
 <button mat-button (click)="getData()">Click me!</button>
 
 <table class="mat-elevation-z8">

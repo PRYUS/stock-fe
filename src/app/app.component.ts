@@ -10,16 +10,20 @@ export class AppComponent {
   title = 'app';
   myData: Array<any>;
   displayedColumns: Array<any>;
+  myDate: any;
 
   constructor(private http: HttpClient) {
 
   }
   getData() {
-    console.log('hello');
-    this.http.get(`http://localhost:3003/get/2017/MAY/29/bhav`)
+    const dte = new Date(this.myDate);
+    console.log(dte.getDate(), dte.getFullYear());
+    const months = [ 'JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'NOVEMBER', 'DECEMBER' ];
+    this.http.get(`http://localhost:3003/get/${dte.getFullYear()}/${months[dte.getMonth()]}/${dte.getDate()}/bhav`)
       .subscribe(res => {
-        this.displayedColumns = res.fields;
-        this.myData = res.row
+        const { fields, row } = res
+        this.displayedColumns = fields;
+        this.myData = row
       });
   }
 }
